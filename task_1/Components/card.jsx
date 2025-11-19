@@ -28,7 +28,7 @@ const Card = ({
     <div className="bg-gray-900 border-2 border-gray-600 w-72 h-[570px] rounded-lg overflow-hidden transition-all duration-300 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-400/20 hover:-translate-y-1 relative">
       {/* Card header */}
       <div
-        className="flex justify-center items-end h-[20%] w-full bg-amber-50 bg-cover bg-center transition-all duration-300 hover:h-[22%]"
+        className="flex justify-center items-end h-[20%] w-full bg-amber-50 bg-cover bg-center transition-all duration-300 hover:h-[21.%]"
         style={{
           backgroundImage: `url('${header_bg}')`,
         }}
@@ -84,29 +84,28 @@ const Card = ({
         </div>
 
         <div className="absolute bottom-50 left-0 right-0 px-2">
-        <div className="w-full flex justify-end items-center text-sm mt-3">
-          <div className="px-2 py-1 bg-black rounded-md transition-all duration-300 hover:bg-amber-500 hover:text-gray-900 hover:scale-105 cursor-pointer">
-            {budget_status}
+          <div className="w-full flex justify-end items-center text-sm mt-3">
+            <div className="px-2 py-1 bg-black rounded-md transition-all duration-300 hover:bg-amber-500 hover:text-gray-900 hover:scale-105 cursor-pointer">
+              {budget_status}
+            </div>
+            <div className="px-2 py-1 flex justify-end items-center gap-1 transition-colors duration-300 hover:text-amber-400 cursor-pointer">
+              Budget{" "}
+              <Banknote
+                size={20}
+                className="transition-transform duration-300 hover:rotate-12"
+              />
+            </div>
           </div>
-          <div className="px-2 py-1 flex justify-end items-center gap-1 transition-colors duration-300 hover:text-amber-400 cursor-pointer">
-            Budget{" "}
-            <Banknote
+        </div>
+
+        <div className="absolute bottom-40 left-0 right-0 px-2">
+          <span className="p-2 flex justify-end items-center gap-1 text-sm transition-colors duration-300 hover:text-amber-400 cursor-pointer">
+            Categories
+            <TagsIcon
               size={20}
               className="transition-transform duration-300 hover:rotate-12"
             />
-          </div>
-        </div>
-</div>
-
-      <div className="absolute bottom-40 left-0 right-0 px-2">
-
-        <span className="p-2 flex justify-end items-center gap-1 text-sm transition-colors duration-300 hover:text-amber-400 cursor-pointer">
-          Categories
-          <TagsIcon
-            size={20}
-            className="transition-transform duration-300 hover:rotate-12"
-          />
-        </span>
+          </span>
         </div>
 
         <div className="absolute bottom-20 left-0 right-0 px-2">
