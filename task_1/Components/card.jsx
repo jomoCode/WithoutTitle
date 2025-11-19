@@ -25,7 +25,7 @@ const Card = ({
   onView = () => console.log("clicked view"),
 }) => {
   return (
-    <div className="bg-gray-900 border-2 border-gray-600 w-72 h-[570px] rounded-lg overflow-hidden transition-all duration-300 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-400/20 hover:-translate-y-1">
+    <div className="bg-gray-900 border-2 border-gray-600 w-72 h-[570px] rounded-lg overflow-hidden transition-all duration-300 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-400/20 hover:-translate-y-1 relative">
       {/* Card header */}
       <div
         className="flex justify-center items-end h-[20%] w-full bg-amber-50 bg-cover bg-center transition-all duration-300 hover:h-[22%]"
@@ -34,7 +34,10 @@ const Card = ({
         }}
       >
         <div className="py-1 px-2 bg-gray-900 italic font-bold rounded-md hover:bg-amber-500 hover:text-gray-900 transition-all duration-300 text-white text-xs flex justify-center items-center flex-row mb-2 cursor-pointer hover:scale-105">
-          <SquarePen size={10} className="text-white/50 mr-2 group-hover:text-gray-900" />
+          <SquarePen
+            size={10}
+            className="text-white/50 mr-2 group-hover:text-gray-900"
+          />
           {profile_name}
         </div>
       </div>
@@ -57,12 +60,16 @@ const Card = ({
 
       <div className="h-6" />
 
-      <main className="p-2">
+      <main className="p-2 h-full">
         <div className="flex items-center justify-end gap-1 text-sm font-medium whitespace-nowrap mb-4 group cursor-pointer">
           <h1 className="text-right font-bold transition-colors duration-300 group-hover:text-amber-400">
             {title}
           </h1>
-          <Tag size={15} color="blue" className="transition-transform duration-300 group-hover:rotate-12" />
+          <Tag
+            size={15}
+            color="blue"
+            className="transition-transform duration-300 group-hover:rotate-12"
+          />
         </div>
 
         <div className="text-right p-2 bg-gray-950/25 text-xs space-y-1 rounded-md transition-all duration-300 hover:bg-gray-950/40 hover:shadow-md">
@@ -81,54 +88,67 @@ const Card = ({
             {budget_status}
           </div>
           <div className="px-2 py-1 flex justify-end items-center gap-1 transition-colors duration-300 hover:text-amber-400 cursor-pointer">
-            Budget <Banknote size={20} className="transition-transform duration-300 hover:rotate-12" />
+            Budget{" "}
+            <Banknote
+              size={20}
+              className="transition-transform duration-300 hover:rotate-12"
+            />
           </div>
         </div>
 
         <span className="p-2 flex justify-end items-center gap-1 text-sm transition-colors duration-300 hover:text-amber-400 cursor-pointer">
           Categories
-          <TagsIcon size={20} className="transition-transform duration-300 hover:rotate-12" />
+          <TagsIcon
+            size={20}
+            className="transition-transform duration-300 hover:rotate-12"
+          />
         </span>
 
-        <div className="flex flex-row text-sm justify-end items-center w-full gap-1">
-          {hashTags.map((tag, index) => (
-            <div
-              key={`${tag}_${index}`}
-              className="py-1 px-2 bg-gray-800 text-white rounded-xl transition-all duration-300 hover:bg-amber-500 hover:text-gray-900 hover:scale-110 cursor-pointer"
-            >
-              #{tag}
-            </div>
-          ))}
+        <div className="absolute bottom-20 left-0 right-0 px-2">
+          <div className="flex flex-row text-sm justify-end items-center w-full gap-2 flex-wrap">
+            {hashTags.map((tag, index) => (
+              <div
+                key={`${tag}_${index}`}
+                className="py-1 px-2  bg-gray-800 text-white rounded-xl transition-all duration-300 hover:bg-amber-500 hover:text-gray-900 hover:scale-110 cursor-pointer "
+              >
+                {tag} #
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="w-full flex justify-between items-center text-xs mt-4">
-          <div className="text-amber-400 transition-all duration-300 hover:text-amber-300 hover:scale-105">
-            {acceptor_status}
-          </div>
-          <div className="flex justify-end items-center gap-1 transition-colors duration-300 hover:text-amber-400 cursor-pointer">
-            {time_ago} <Calendar size={10} />
+        <div className="absolute bottom-12 left-0 right-0 px-2">
+          <div className="w-full flex justify-between items-center text-xs mt-4">
+            <div className="text-amber-400 transition-all duration-300 hover:text-amber-300 hover:scale-105">
+              {acceptor_status}
+            </div>
+            <div className="flex justify-end items-center gap-1 transition-colors duration-300 hover:text-amber-400 cursor-pointer">
+              {time_ago} <Calendar size={10} />
+            </div>
           </div>
         </div>
       </main>
 
       {/* Footer */}
-      <div className="border-t-amber-200 border-t">
+      <footer className="border-t-amber-200 border-t absolute bottom-0 left-0 right-0">
         <div
           className="text-lg bg-linear-to-b from-amber-300/40 via-amber-300/15 to-amber-300/5 transition-all duration-300 hover:from-amber-400/60 hover:via-amber-400/30 hover:to-amber-400/10 cursor-pointer"
           onClick={onView}
         >
           <div className="text-sm flex justify-center items-center gap-1 py-2 group">
-            <span className="transition-transform duration-300 group-hover:-translate-x-[4]">View</span>
-            <ExternalLink 
-              color="yellow" 
-              size={15} 
+            <span className="transition-transform duration-300 group-hover:-translate-x-[4]">
+              View
+            </span>
+            <ExternalLink
+              color="yellow"
+              size={15}
               className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-px"
             />
           </div>
         </div>
-      </div>
+      </footer>
     </div>
   );
 };
 
-export {Card};
+export { Card };
