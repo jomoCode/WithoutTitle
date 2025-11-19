@@ -98,65 +98,76 @@ let number_of_request;
 
 export default function cardHome() {
   return (
-    <main className="flex flex-col  p-5">
+    <main className="flex flex-col p-5 bg-gray-50 dark:bg-gray-950 min-h-screen transition-colors duration-300">
       <div className="flex flex-col md:flex-row justify-between items-center">
         {/* Top left image */}
-        <Image
-          src={"/organize.png"}
-          alt="side image"
-          width={300}
-          height={300}
-        />
+        <div className="transition-transform duration-300 hover:scale-105 hover:rotate-2">
+          <Image
+            src={"/organize.png"}
+            alt="side image"
+            width={300}
+            height={300}
+            className="drop-shadow-lg"
+          />
+        </div>
 
-        {/* Top left text */}
+        {/* Top right text */}
         <div className="flex flex-col justify-end items-end">
           {/* Title and icon */}
-
           <div className="w-full flex items-center justify-end gap-1 font-medium whitespace-nowrap mb-4 group cursor-pointer">
-            <h1 className="text-right text-2xl font-bold transition-colors duration-300 group-hover:text-amber-400">
+            <h1 className="text-right text-2xl font-bold text-gray-900 dark:text-white transition-colors duration-300 group-hover:text-amber-500 group-hover:scale-105">
               Requests
             </h1>
             <Save
               size={20}
               color="blue"
-              className="transition-transform duration-300 group-hover:rotate-12"
+              className="transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110"
             />
           </div>
 
-          <div className="text-right p-2 bg-gray-950/25 space-y-1 rounded-md transition-all duration-300 hover:bg-gray-950/40 hover:shadow-md">
+          <div className="text-right p-2  text-gray-900 dark:text-white space-y-1 rounded-md transition-all duration-300 hover:scale-[1.02]">
             {loremLines.map((content, index) => (
-              <div key={index}>{content}</div>
+              <div key={index} className="text-sm">{content}</div>
             ))}
           </div>
+
           {/* Request submission */}
-          <div className="px-2 py-1 flex rounded-lg w-fit justify-end items-center gap-1 transition-colors duration-300 hover:bg-gray-700 bg-gray-700/40 cursor-pointer mt-2">
-            Submit a request
+          <div className="px-3 py-2 flex rounded-lg w-fit justify-end items-center gap-2 transition-all duration-300 hover:bg-amber-500 hover:text-gray-900 bg-gray-300 dark:bg-gray-700/40 text-gray-900 dark:text-white cursor-pointer mt-2 hover:scale-105 hover:shadow-lg group">
+            <span className="font-medium">Submit a request</span>
             <NotebookPen
               size={20}
-              className="transition-transform duration-300 hover:rotate-12"
+              className="transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110"
             />
           </div>
         </div>
       </div>
 
-      <div className="w-full flex justify-between items-center mt-3">
-        <div className="px-2 py-1 font-bold flex items-center">
-          Request registered {number_of_request ?? 6}
-          <div className=" bg-yellow-500 size-[10px] ml-2 rounded-full" />
+      <div className="w-full flex flex-col md:flex-row justify-between items-start md:items-center mt-8 mb-2 gap-4">
+        <div className="px-3 py-2 font-bold flex items-center text-gray-900 dark:text-white bg-white dark:bg-gray-900 rounded-lg transition-all duration-300 hover:shadow-md hover:scale-105 border border-gray-200 dark:border-gray-800">
+          <span>Request registered</span>
+          <span className="ml-2 text-amber-500">{number_of_request ?? 6}</span>
+          <div className="bg-amber-500 size-[10px] ml-2 rounded-full animate-pulse shadow-lg shadow-amber-500/50" />
         </div>
 
-        <div className="px-2 py-1 font-bold flex justify-end items-center gap-1 transition-colors duration-300 hover:text-amber-400 cursor-pointer">
-          Latest requests
+        <div className="px-3 py-2 font-bold flex justify-end items-center gap-2 text-gray-900 dark:text-white transition-all duration-300 hover:text-amber-500 cursor-pointer bg-white dark:bg-gray-900 rounded-lg hover:shadow-md hover:scale-105 border border-gray-200 dark:border-gray-800 group">
+          <span>Latest requests</span>
           <Save
             size={20}
-            className="transition-transform duration-300 hover:rotate-12"
+            className="transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110"
           />
         </div>
       </div>
+
       {/* Profile cards */}
       <div className="flex flex-col md:flex-row justify-center items-center w-full gap-10">
         {cardsData.map((card, index) => (
-          <Card key={index} {...card} />
+          <div 
+            key={index}
+            className="transition-transform duration-300 hover:scale-[1.02]"
+            style={{ animationDelay: `${index * 100}ms` }}
+          >
+            <Card {...card} />
+          </div>
         ))}
       </div>
     </main>

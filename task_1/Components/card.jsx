@@ -25,7 +25,7 @@ const Card = ({
   onView = () => console.log("clicked view"),
 }) => {
   return (
-    <div className="bg-gray-900 border-2 border-gray-600 w-72 h-[570px] rounded-lg overflow-hidden transition-all duration-300 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-400/20 hover:-translate-y-1 relative">
+    <div className="bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-600 w-72 h-[570px] rounded-lg overflow-hidden transition-all duration-300 hover:border-amber-400 hover:shadow-lg hover:shadow-amber-400/20 hover:-translate-y-1 relative">
       {/* Card header */}
       <div
         className="flex justify-center items-end h-[20%] w-full bg-amber-50 bg-cover bg-center transition-all duration-300 hover:h-[21%]"
@@ -33,10 +33,10 @@ const Card = ({
           backgroundImage: `url('${header_bg}')`,
         }}
       >
-        <div className="py-1 px-2 bg-gray-900 italic font-bold rounded-md hover:bg-amber-500 hover:text-gray-900 transition-all duration-300 text-white text-xs flex justify-center items-center flex-row mb-2 cursor-pointer hover:scale-105">
+        <div className="py-1 px-2 bg-gray-100 dark:bg-gray-900 italic font-bold rounded-md hover:bg-amber-500 hover:text-gray-900 transition-all duration-300 text-gray-900 dark:text-white text-xs flex justify-center items-center flex-row mb-2 cursor-pointer hover:scale-105">
           <SquarePen
             size={10}
-            className="text-white/50 mr-2 group-hover:text-gray-900"
+            className="text-gray-500 dark:text-white/50 mr-2 group-hover:text-gray-900"
           />
           {profile_name}
         </div>
@@ -52,7 +52,7 @@ const Card = ({
           className="w-12 h-12 rounded-full object-cover bg-amber-700 transition-all duration-300 hover:scale-110 hover:ring-2 hover:ring-amber-400 cursor-pointer"
         />
 
-        <span className="absolute top-8 left-16 flex items-center gap-1 text-white/50 text-sm font-medium whitespace-nowrap transition-colors duration-300 hover:text-amber-400">
+        <span className="absolute top-8 left-16 flex items-center gap-1 text-gray-600 dark:text-white/50 text-sm font-medium whitespace-nowrap transition-colors duration-300 hover:text-amber-400">
           <span className="text-xl">»</span>
           <span>{user_title}</span>
         </span>
@@ -62,7 +62,7 @@ const Card = ({
 
       <main className="p-2 h-full">
         <div className="flex items-center justify-end gap-1 text-sm font-medium whitespace-nowrap mb-4 group cursor-pointer">
-          <h1 className="text-right font-bold transition-colors duration-300 group-hover:text-amber-400">
+          <h1 className="text-right font-bold text-gray-900 dark:text-white transition-colors duration-300 group-hover:text-amber-400">
             {title}
           </h1>
           <Tag
@@ -72,12 +72,12 @@ const Card = ({
           />
         </div>
 
-        <div className="text-right p-2 bg-gray-950/25 text-xs space-y-1 rounded-md transition-all duration-300 hover:bg-gray-950/40 hover:shadow-md">
+        <div className="text-right p-2 bg-gray-100 dark:bg-gray-950/25 text-gray-900 dark:text-white text-xs space-y-1 rounded-md transition-all duration-300 hover:bg-gray-200 dark:hover:bg-gray-950/40 hover:shadow-md">
           {description.map((content, index) => (
             <div key={index}>{content}</div>
           ))}
 
-          <span className="flex items-center justify-end gap-1 text-white/50 text-xs font-medium whitespace-nowrap mt-5 transition-colors duration-300 hover:text-amber-400">
+          <span className="flex items-center justify-end gap-1 text-gray-600 dark:text-white/50 text-xs font-medium whitespace-nowrap mt-5 transition-colors duration-300 hover:text-amber-400">
             {status}
             <AlertCircleIcon size={10} />
           </span>
@@ -85,10 +85,10 @@ const Card = ({
 
         <div className="absolute bottom-50 left-0 right-0 px-2">
           <div className="w-full flex justify-end items-center text-sm mt-3">
-            <div className="px-2 py-1 bg-black rounded-md transition-all duration-300 hover:bg-amber-500 hover:text-gray-900 hover:scale-105 cursor-pointer">
+            <div className="px-2 py-1 bg-gray-900 dark:bg-black text-white rounded-md transition-all duration-300 hover:bg-amber-500 hover:text-gray-900 hover:scale-105 cursor-pointer">
               {budget_status}
             </div>
-            <div className="px-2 py-1 flex justify-end items-center gap-1 transition-colors duration-300 hover:text-amber-400 cursor-pointer">
+            <div className="px-2 py-1 flex justify-end items-center gap-1 text-gray-900 dark:text-white transition-colors duration-300 hover:text-amber-400 cursor-pointer">
               Budget{" "}
               <Banknote
                 size={20}
@@ -99,7 +99,7 @@ const Card = ({
         </div>
 
         <div className="absolute bottom-40 left-0 right-0 px-2">
-          <span className="p-2 flex justify-end items-center gap-1 text-sm transition-colors duration-300 hover:text-amber-400 cursor-pointer">
+          <span className="p-2 flex justify-end items-center gap-1 text-sm text-gray-900 dark:text-white transition-colors duration-300 hover:text-amber-400 cursor-pointer">
             Categories
             <TagsIcon
               size={20}
@@ -113,7 +113,7 @@ const Card = ({
             {hashTags.map((tag, index) => (
               <div
                 key={`${tag}_${index}`}
-                className="py-1 px-2  bg-gray-800 text-white rounded-xl transition-all duration-300 hover:bg-amber-500 hover:text-gray-900 hover:scale-110 cursor-pointer "
+                className="py-1 px-2 bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-xl transition-all duration-300 hover:bg-amber-500 hover:text-gray-900 hover:scale-110 cursor-pointer "
               >
                 {tag} #
               </div>
@@ -123,10 +123,10 @@ const Card = ({
 
         <div className="absolute bottom-12 left-0 right-0 px-2">
           <div className="w-full flex justify-between items-center text-xs mt-4">
-            <div className="text-amber-400 transition-all duration-300 hover:text-amber-300 hover:scale-105">
+            <div className="text-amber-500 dark:text-amber-400 transition-all duration-300 hover:text-amber-600 dark:hover:text-amber-300 hover:scale-105">
               {acceptor_status}
             </div>
-            <div className="flex justify-end items-center gap-1 transition-colors duration-300 hover:text-amber-400 cursor-pointer">
+            <div className="flex justify-end items-center gap-1 text-gray-600 dark:text-white transition-colors duration-300 hover:text-amber-400 cursor-pointer">
               {time_ago} <Calendar size={10} />
             </div>
           </div>
@@ -136,10 +136,10 @@ const Card = ({
       {/* Footer */}
       <footer className="border-t-amber-200 border-t absolute bottom-0 left-0 right-0">
         <div
-          className="text-lg bg-linear-to-b from-amber-300/40 via-amber-300/15 to-amber-300/5 transition-all duration-300 hover:from-amber-400/60 hover:via-amber-400/30 hover:to-amber-400/10 cursor-pointer"
+          className="text-lg bg-gradient-to-b from-amber-300/40 via-amber-300/15 to-amber-300/5 transition-all duration-300 hover:from-amber-400/60 hover:via-amber-400/30 hover:to-amber-400/10 cursor-pointer"
           onClick={onView}
         >
-          <div className="text-sm flex justify-center items-center gap-1 py-2 group">
+          <div className="text-sm flex justify-center items-center gap-1 py-2 group text-gray-900 dark:text-white">
             <span className="transition-transform duration-300 group-hover:-translate-x-[4]">
               View
             </span>
