@@ -97,7 +97,7 @@ const cardsData = [
 let number_of_request;
 
 
-export default  HomePage = () => {
+export default function cardHome() {
   return (
     <main className="flex flex-col  p-5">
       <div className="flex flex-col md:flex-row justify-between items-center">

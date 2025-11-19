@@ -83,6 +83,7 @@ const Card = ({
           </span>
         </div>
 
+        <div className="absolute bottom-50 left-0 right-0 px-2">
         <div className="w-full flex justify-end items-center text-sm mt-3">
           <div className="px-2 py-1 bg-black rounded-md transition-all duration-300 hover:bg-amber-500 hover:text-gray-900 hover:scale-105 cursor-pointer">
             {budget_status}
@@ -95,6 +96,9 @@ const Card = ({
             />
           </div>
         </div>
+</div>
+
+      <div className="absolute bottom-40 left-0 right-0 px-2">
 
         <span className="p-2 flex justify-end items-center gap-1 text-sm transition-colors duration-300 hover:text-amber-400 cursor-pointer">
           Categories
@@ -103,6 +107,7 @@ const Card = ({
             className="transition-transform duration-300 hover:rotate-12"
           />
         </span>
+        </div>
 
         <div className="absolute bottom-20 left-0 right-0 px-2">
           <div className="flex flex-row text-sm justify-end items-center w-full gap-2 flex-wrap">
