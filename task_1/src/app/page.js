@@ -96,7 +96,6 @@ const cardsData = [
 
 let number_of_request;
 
-
 export default function cardHome() {
   return (
     <main className="flex flex-col  p-5">
@@ -155,7 +154,7 @@ export default function cardHome() {
         </div>
       </div>
       {/* Profile cards */}
-      <div className="flex flex-row justify-center items-center w-full gap-10">
+      <div className="flex flex-col md:flex-row justify-center items-center w-full gap-10">
         {cardsData.map((card, index) => (
           <Card key={index} {...card} />
         ))}
